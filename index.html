@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva Educación Parvularia - Plan 4</title>
+  <title>Malla Interactiva Educación Parvularia UCT - Plan 4</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,7 +13,13 @@
     }
     h1 {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    #mensaje {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
     }
     .malla {
       display: flex;
@@ -27,23 +33,37 @@
       background-color: #faf3f8;
       border-radius: 1rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      min-width: 200px;
     }
     .semestre h2 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .anio {
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: normal;
     }
     .curso {
       margin: 0.3rem 0;
       padding: 0.4rem;
-      background-color: #e3d7f4;
+      background-color: #f8d7e6; /* rosado pendiente */
       border-radius: 0.5rem;
       cursor: pointer;
       position: relative;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
     .curso.aprobado {
-      background-color: #c8b3e6;
+      background-color: #7a52a1; /* morado */
+      color: white;
+      text-decoration: line-through;
     }
     .curso.bloqueado {
       background-color: #ddd;
@@ -60,6 +80,10 @@
       white-space: pre-line;
       display: none;
       z-index: 100;
+      max-width: 180px;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
     }
     .leyenda {
       margin-top: 1rem;
@@ -68,30 +92,67 @@
       border-radius: 1rem;
       display: flex;
       justify-content: space-around;
+      align-items: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: none;
     }
     .leyenda div {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #333;
     }
     .leyenda .cuadro {
       width: 1rem;
       height: 1rem;
       border-radius: 0.2rem;
+      border: 1px solid #bbb;
     }
-    .aprobado-box { background-color: #c8b3e6; }
-    .pendiente-box { background-color: #e3d7f4; }
-    .bloqueado-box { background-color: #ddd; }
+    .aprobado-box {
+      background-color: #7a52a1; /* morado */
+      border: none;
+    }
+    .pendiente-box {
+      background-color: #f8d7e6; /* rosado */
+      border: none;
+    }
+    .bloqueado-box {
+      background-color: #ddd; /* gris */
+      border: none;
+    }
+    #toggleLeyendaBtn {
+      cursor: pointer;
+      background: #7a52a1;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    #toggleLeyendaBtn:hover {
+      background-color: #5a3a75;
+    }
   </style>
 </head>
 <body>
-  <h1>Malla Interactiva Educación Parvularia - Plan 4</h1>
+  <h1>Malla Interactiva Educación Parvularia UCT - Plan 4</h1>
+  <div id="mensaje">Haz clic sobre los cursos aprobados para avanzar. Pasa el mouse para ver los prerrequisitos.</div>
+
   <div class="malla" id="malla"></div>
-  <div class="leyenda">
+
+  <div class="leyenda" id="leyenda">
     <div><div class="cuadro aprobado-box"></div> Aprobado</div>
-    <div><div class="cuadro pendiente-box"></div> Pendiente</div>
-    <div><div class="cuadro bloqueado-box"></div> Bloqueado</div>
+    <div><div class="cuadro pendiente-box"></div> No aprobado</div>
+    <div><div class="cuadro bloqueado-box"></div> Bloqueado (prerrequisitos no cumplidos)</div>
   </div>
+  <div style="text-align:center; margin-top: 0.5rem;">
+    <button id="toggleLeyendaBtn">Ocultar leyenda</button>
+  </div>
+
   <script>
     const cursos = [
       { nombre: "Desarrollo y Aprendizaje de la Persona", semestre: 1 },
@@ -144,7 +205,7 @@
       { nombre: "Experiencias Educativas Interculturales", semestre: 7 },
       { nombre: "Electivo para la Diversidad II", semestre: 7 },
 
-      { nombre: "Seminario de Investigación de la práctica Educativa", semestre: 8, prerrequisitos: ["Investigación Educativa", "Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosóficos"] },
+      { nombre: "Seminario de Investigación de la práctica Educativa", semestre: 8, prerrequisitos: ["Investigación Educativa", "Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosofía"] },
       { nombre: "Práctica Intermedia III", semestre: 8, prerrequisitos: ["Práctica Intermedia II (mención) (Ev. Ciclo 2)", "Práctica Intermedia I (A+S)", "Práctica Inicial I (Ev. Ciclo I)", "Práctica Inicial II"] },
       { nombre: "Saberes Educativos Mapuche para la Infancia", semestre: 8, prerrequisitos: ["Experiencias Educativas Interculturales"] },
       { nombre: "Innovación Educativa Intercultural y Familiar Comunitaria", semestre: 8, prerrequisitos: ["Experiencias Educativas Interculturales", "Familia, Comunidad y Territorio"] },
@@ -155,7 +216,14 @@
     ];
 
     const mallaDiv = document.getElementById("malla");
+    const leyendaDiv = document.getElementById("leyenda");
+    const toggleLeyendaBtn = document.getElementById("toggleLeyendaBtn");
     const estadoCursos = JSON.parse(localStorage.getItem("estadoCursosPlan4")) || {};
+
+    // Función para obtener año según semestre
+    function semestreAAño(semestre) {
+      return Math.ceil(semestre / 2);
+    }
 
     function renderMalla() {
       mallaDiv.innerHTML = "";
@@ -163,7 +231,10 @@
       semestres.forEach(sem => {
         const columna = document.createElement("div");
         columna.className = "semestre";
-        columna.innerHTML = `<h2>Semestre ${sem}</h2>`;
+
+        // Año al lado del semestre
+        columna.innerHTML = `<h2>Semestre ${sem} <span class="anio">(Año ${semestreAAño(sem)})</span></h2>`;
+
         cursos.filter(c => c.semestre === sem).forEach(curso => {
           const div = document.createElement("div");
           div.className = "curso";
@@ -175,6 +246,7 @@
 
           if (aprobado) div.classList.add("aprobado");
           else if (bloqueado) div.classList.add("bloqueado");
+          // else queda rosado pendiente por defecto
 
           div.addEventListener("click", () => {
             if (div.classList.contains("bloqueado")) return;
@@ -189,10 +261,8 @@
             tooltip.textContent = "Prerrequisitos:\n" + curso.prerrequisitos.join("\n");
             div.appendChild(tooltip);
 
-            div.addEventListener("mouseenter", (e) => {
+            div.addEventListener("mouseenter", () => {
               tooltip.style.display = "block";
-              tooltip.style.top = `${e.offsetY + 20}px`;
-              tooltip.style.left = `${e.offsetX + 20}px`;
             });
             div.addEventListener("mouseleave", () => {
               tooltip.style.display = "none";
@@ -204,6 +274,16 @@
         mallaDiv.appendChild(columna);
       });
     }
+
+    toggleLeyendaBtn.addEventListener("click", () => {
+      if (leyendaDiv.style.display === "none") {
+        leyendaDiv.style.display = "flex";
+        toggleLeyendaBtn.textContent = "Ocultar leyenda";
+      } else {
+        leyendaDiv.style.display = "none";
+        toggleLeyendaBtn.textContent = "Mostrar leyenda";
+      }
+    });
 
     renderMalla();
   </script>
