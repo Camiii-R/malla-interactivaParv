@@ -40,15 +40,7 @@
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-      align-items: baseline;
-    }
-    .anio {
-      font-size: 0.8rem;
-      color: #888;
-      font-weight: normal;
+      user-select: none;
     }
     .curso {
       margin: 0.3rem 0;
@@ -132,6 +124,7 @@
       border-radius: 1rem;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
     #toggleLeyendaBtn:hover {
       background-color: #5a3a75;
@@ -184,14 +177,14 @@
       { nombre: "Literatura Infantil - Artes escénicas y su Didáctica", semestre: 4, prerrequisitos: ["Didáctica en Primera Infancia II", "Exploración de los Lenguajes Artísticos"] },
       { nombre: "Lenguaje Verbal y su Didáctica", semestre: 4, prerrequisitos: ["Didáctica en Primera Infancia II", "Adquisición y Desarrollo del Lenguaje Verbal"] },
 
-      { nombre: "Educación Inclusiva y Atención a la Diversidad", semestre: 5, prerrequisitos: ["Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosóficos"] },
+      { nombre: "Educación Inclusiva y Atención a la Diversidad", semestre: 5, prerrequisitos: ["Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosoficos"] },
       { nombre: "Práctica Inicial II", semestre: 5, prerrequisitos: ["Práctica Inicial I (Ev. Ciclo I)"] },
       { nombre: "Entorno Sociocultural y su Didáctica", semestre: 5, prerrequisitos: ["Didáctica en Primera Infancia II"] },
       { nombre: "Trayectoria y Transiciones Educativas", semestre: 5 },
       { nombre: "Artes Musicales y su Didáctica", semestre: 5, prerrequisitos: ["Exploración de los Lenguajes Artísticos", "Didáctica en Primera Infancia II"] },
       { nombre: "Electivo Teológico", semestre: 5 },
 
-      { nombre: "Perspectivas Interculturales en Educación", semestre: 6, prerrequisitos: ["Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosóficos"] },
+      { nombre: "Perspectivas Interculturales en Educación", semestre: 6, prerrequisitos: ["Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosoficos"] },
       { nombre: "Convivencia y Vida Democrática para la Ciudadanía", semestre: 6, prerrequisitos: ["Educación Inclusiva y Atención a la Diversidad"] },
       { nombre: "Práctica Intermedia I (A+S)", semestre: 6, prerrequisitos: ["Práctica Inicial I (Ev. Ciclo I)", "Práctica Inicial II"] },
       { nombre: "Fundamentos y Atención a las NEE en la Infancia", semestre: 6 },
@@ -199,20 +192,20 @@
       { nombre: "Diseño y Evaluación de Proyectos (A+S)", semestre: 6 },
       { nombre: "Electivo para la Diversidad I", semestre: 6 },
 
-      { nombre: "Investigación Educativa", semestre: 7, prerrequisitos: ["Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosóficos"] },
+      { nombre: "Investigación Educativa", semestre: 7, prerrequisitos: ["Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosoficos"] },
       { nombre: "Práctica Intermedia II (mención) (Ev. Ciclo 2)", semestre: 7, prerrequisitos: ["Práctica Intermedia I (A+S)", "Práctica Inicial I (Ev. Ciclo I)", "Práctica Inicial II"] },
       { nombre: "Familia, Comunidad y Territorio", semestre: 7, prerrequisitos: ["Innovación Educativa Intercultural y Familiar Comunitaria"] },
       { nombre: "Experiencias Educativas Interculturales", semestre: 7 },
       { nombre: "Electivo para la Diversidad II", semestre: 7 },
 
-      { nombre: "Seminario de Investigación de la práctica Educativa", semestre: 8, prerrequisitos: ["Investigación Educativa", "Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosofía"] },
+      { nombre: "Seminario de Investigación de la práctica Educativa", semestre: 8, prerrequisitos: ["Investigación Educativa", "Perspectivas Interculturales en Educación", "Educación Inclusiva y Atención a la Diversidad", "Evaluación para el Aprendizaje", "Diseño Curricular para el Aprendizaje", "Políticas Educativas y Profesión Docente", "Fundamentos Pedagógicos y Filosoficos"] },
       { nombre: "Práctica Intermedia III", semestre: 8, prerrequisitos: ["Práctica Intermedia II (mención) (Ev. Ciclo 2)", "Práctica Intermedia I (A+S)", "Práctica Inicial I (Ev. Ciclo I)", "Práctica Inicial II"] },
       { nombre: "Saberes Educativos Mapuche para la Infancia", semestre: 8, prerrequisitos: ["Experiencias Educativas Interculturales"] },
       { nombre: "Innovación Educativa Intercultural y Familiar Comunitaria", semestre: 8, prerrequisitos: ["Experiencias Educativas Interculturales", "Familia, Comunidad y Territorio"] },
       { nombre: "Dominios de Saberes Pedagógicos y Disciplinarios", semestre: 8, prerrequisitos: ["Práctica Intermedia II (mención) (Ev. Ciclo 2)"] },
       { nombre: "Ética Profesional", semestre: 8 },
 
-      { nombre: "Práctica Profesional (Ev. Ciclo 3)", semestre: 9, prerrequisitos: ["Práctica Intermedia III"] }
+      { nombre: "Práctica Profesional (Ev. Ciclo 3)", semestre: 9 }
     ];
 
     const mallaDiv = document.getElementById("malla");
@@ -220,9 +213,14 @@
     const toggleLeyendaBtn = document.getElementById("toggleLeyendaBtn");
     const estadoCursos = JSON.parse(localStorage.getItem("estadoCursosPlan4")) || {};
 
-    // Función para obtener año según semestre
-    function semestreAAño(semestre) {
-      return Math.ceil(semestre / 2);
+    // Funciones para convertir número a texto ordinal (1 → Primer, 2 → Segundo, etc.)
+    function numeroAAñoTexto(num) {
+      const textos = ["Primer", "Segundo", "Tercer", "Cuarto", "Quinto"];
+      return textos[num - 1] || `${num}º`;
+    }
+
+    function numeroASemestreTexto(num) {
+      return num === 1 ? "Semestre I" : "Semestre II";
     }
 
     function renderMalla() {
@@ -232,8 +230,14 @@
         const columna = document.createElement("div");
         columna.className = "semestre";
 
-        // Año al lado del semestre
-        columna.innerHTML = `<h2>Semestre ${sem} <span class="anio">(Año ${semestreAAño(sem)})</span></h2>`;
+        // Calcular año y semestre dentro del año
+        const añoNum = Math.ceil(sem / 2);
+        const semestreDentroAno = sem % 2 === 1 ? 1 : 2;
+
+        // Texto con formato deseado
+        const textoAnioSemestre = `${numeroAAñoTexto(añoNum)} Año - ${numeroASemestreTexto(semestreDentroAno)}`;
+
+        columna.innerHTML = `<h2>${textoAnioSemestre}</h2>`;
 
         cursos.filter(c => c.semestre === sem).forEach(curso => {
           const div = document.createElement("div");
@@ -241,9 +245,17 @@
           div.textContent = curso.nombre;
           const id = curso.nombre;
 
-          const aprobado = estadoCursos[id];
-          const bloqueado = curso.prerrequisitos && curso.prerrequisitos.some(pr => !estadoCursos[pr]);
+          // Bloqueo especial para "Práctica Profesional (Ev. Ciclo 3)"
+          let bloqueado = false;
+          if (id === "Práctica Profesional (Ev. Ciclo 3)") {
+            // Todos los cursos hasta semestre 8 deben estar aprobados
+            const cursosHastaSem8 = cursos.filter(cu => cu.semestre <= 8).map(cu => cu.nombre);
+            bloqueado = cursosHastaSem8.some(cursoNombre => !estadoCursos[cursoNombre]);
+          } else if (curso.prerrequisitos) {
+            bloqueado = curso.prerrequisitos.some(pr => !estadoCursos[pr]);
+          }
 
+          const aprobado = estadoCursos[id];
           if (aprobado) div.classList.add("aprobado");
           else if (bloqueado) div.classList.add("bloqueado");
           // else queda rosado pendiente por defecto
@@ -255,10 +267,14 @@
             renderMalla();
           });
 
-          if (curso.prerrequisitos) {
+          if (curso.prerrequisitos || id === "Práctica Profesional (Ev. Ciclo 3)") {
             const tooltip = document.createElement("div");
             tooltip.className = "tooltip";
-            tooltip.textContent = "Prerrequisitos:\n" + curso.prerrequisitos.join("\n");
+            if (id === "Práctica Profesional (Ev. Ciclo 3)") {
+              tooltip.textContent = "Prerrequisito:\nTener aprobado todos los cursos hasta el semestre 8";
+            } else {
+              tooltip.textContent = "Prerrequisitos:\n" + curso.prerrequisitos.join("\n");
+            }
             div.appendChild(tooltip);
 
             div.addEventListener("mouseenter", () => {
